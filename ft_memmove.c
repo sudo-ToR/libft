@@ -1,38 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lnoirot <lnoirot@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/10 12:18:45 by lnoirot           #+#    #+#             */
+/*   Updated: 2019/10/10 19:48:58 by lnoirot          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
-void	*ft_memmove(void *dest, const void *src, size_t n)
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
 	char	*tmp;
-	char	*tmps;
-	char	*tmpd;
+	char	*dstbis;
 
-	tmps = (char *)src;
-	tmpd = (char *)dest;
-	tmp = (char *)malloc(sizeof(char) * n);
-	i = 0;
-	while (i < n)
+	tmp = (char *)src;
+	dstbis = (char *)dst;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	if (dst < src)
+		return (ft_memcpy(dst, src, len));
+	if (dst > src)
 	{
-		tmp[i] = tmps[i];
-		i++;
+		while (len != 0)
+		{
+			len--;
+			dstbis[len] = tmp[len];
+		}
 	}
-	i = 0;
-	while (i < n)
-	{
-		tmpd[i] = tmp[i];
-		i++;
-	}
-	return (dest);
-}
-
-int	main()
-{
-	char *src = strdup("Salut");
-	char *dest = src + 3;
-	char *src1 = strdup("Salut");
-	char *dest1 = src1 + 3;
-	
-	printf("memmove =%s\n", (char *)memmove((void *) dest, (const void *)src, 4));
-	printf("ft_memmove =%s\n", (char *)ft_memmove((void *) dest1, (const void *)src1, 4));
+	return (dst);
 }

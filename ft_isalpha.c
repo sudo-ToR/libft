@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lnoirot <lnoirot@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/07 18:41:05 by lnoirot           #+#    #+#             */
+/*   Updated: 2019/10/11 16:05:25 by lnoirot          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int		ft_isalpha(int c)
 {
-	if(((unsigned char)c <= 'z' && (unsigned char)c >= 'a')
-		|| ((unsigned char)c <= 'Z' && (unsigned char)c >= 'A'))
+	if ((c <= 'z' && c >= 'a')
+		|| (c <= 'Z' && c >= 'A'))
 		return (1);
-	else
-		return (0);
+	return (0);
 }

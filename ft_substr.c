@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnoirot <lnoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 18:43:39 by lnoirot           #+#    #+#             */
-/*   Updated: 2019/10/09 17:33:44 by lnoirot          ###   ########.fr       */
+/*   Created: 2019/10/09 11:30:58 by lnoirot           #+#    #+#             */
+/*   Updated: 2019/10/10 20:54:18 by lnoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalnum(int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (ft_isdigit(c) != 0 || ft_isalpha(c) != 0)
-		return (1);
-	return (0);
+	char	*r;
+	size_t	i;
+
+	i = 0;
+	if (s == 0)
+		return (NULL);
+	r = (char *)malloc(sizeof(char) * (len + 1));
+	if (r == 0)
+		return (NULL);
+	while (i < len && s[start])
+	{
+		r[i] = s[start];
+		i++;
+		start++;
+	}
+	r[i] = '\0';
+	return (r);
 }
