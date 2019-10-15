@@ -6,25 +6,26 @@
 /*   By: lnoirot <lnoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 10:24:36 by lnoirot           #+#    #+#             */
-/*   Updated: 2019/10/09 10:25:38 by lnoirot          ###   ########.fr       */
+/*   Updated: 2019/10/15 19:10:37 by lnoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	void	**array;
+	void	*array;
+	char	*tmp;
+	size_t	i;
 
-	array = malloc(sizeof(void *) * nmemb);
-	if (size == 0 || array == NULL)
+	if (!(array = malloc(sizeof(void) * (size * count))))
 		return (NULL);
-	while (nmemb != 0)
+	tmp = (char *)array;
+	i = 0;
+	while (i < (size * count))
 	{
-		nmemb--;
-		array[nmemb] = malloc(sizeof(char) * size);
-		if (array[size] == NULL)
-			return (NULL);
+		tmp[i] = 0;
+		i++;
 	}
-	return (array[0]);
+	return (array);
 }

@@ -6,7 +6,7 @@
 /*   By: lnoirot <lnoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 11:30:58 by lnoirot           #+#    #+#             */
-/*   Updated: 2019/10/10 20:54:18 by lnoirot          ###   ########.fr       */
+/*   Updated: 2019/10/14 20:49:35 by lnoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (s == 0)
 		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
 	r = (char *)malloc(sizeof(char) * (len + 1));
 	if (r == 0)
 		return (NULL);

@@ -6,12 +6,11 @@
 /*   By: lnoirot <lnoirot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:39:41 by lnoirot           #+#    #+#             */
-/*   Updated: 2019/10/14 15:18:50 by lnoirot          ###   ########.fr       */
+/*   Updated: 2019/10/14 20:30:10 by lnoirot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	ft_count_word(char const *s, char c)
 {
@@ -25,10 +24,11 @@ static int	ft_count_word(char const *s, char c)
 		if (s[i] != c)
 		{
 			count++;
-			while (s[i] != c)
+			while (s[i] && s[i] != c)
 				i++;
 		}
-		i++;
+		if (s[i])
+			i++;
 	}
 	return (count);
 }
