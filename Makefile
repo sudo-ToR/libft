@@ -3,44 +3,91 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lnoirot <lnoirot@student.42.fr>            +#+  +:+       +#+         #
+#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/16 12:12:45 by lnoirot           #+#    #+#              #
-#    Updated: 2019/10/15 20:19:31 by lnoirot          ###   ########.fr        #
+#    Updated: 2020/04/30 21:44:15 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
-ft_memchr.c ft_memcmp.c ft_strlen.c ft_isalpha.c ft_isdigit.c ft_isalnum.c \
-ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c \
-ft_strncmp.c ft_strlcpy.c ft_strlcat.c ft_strnstr.c ft_atoi.c ft_calloc.c \
-ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
-ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-
-OBJS	= ${SRCS:.c=.o}
-
-CC		= gcc
-
-CFLAGS	= -Wall -Wextra -Werror -Iincludes
+.SUFFIXES :
 
 NAME	= libft.a
 
-.c.o:		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+GNL_PATH =	./gnl
+IS_PATH =	./is_something
+STR_PATH =	./str
+AFF_PAH =	./affichage
+MEM_PATH =	./mem
+MATHS_PATH =	./maths
+LIST_PATH =		./list
 
-$(NAME):	${OBJS}
-			ar rc ${NAME} ${OBJS}
+SRCS	=	$(GNL_PATH)/get_next_line.c \
+		$(GNL_PATH)/get_next_line_utils.c \
+		$(MEM_PATH)/ft_bzero.c \
+		$(MEM_PATH)/ft_memset.c \
+		$(MEM_PATH)/ft_memcpy.c \
+		$(MEM_PATH)/ft_memccpy.c \
+		$(MEM_PATH)/ft_memmove.c \
+		$(MEM_PATH)/ft_memchr.c \
+		$(MEM_PATH)/ft_memcmp.c \
+		$(STR_PATH)/ft_strlen.c \
+		$(IS_PATH)/ft_isalpha.c \
+		$(IS_PATH)/ft_isdigit.c \
+		$(IS_PATH)/ft_isalnum.c \
+		$(IS_PATH)/ft_isascii.c \
+		$(IS_PATH)/ft_isprint.c \
+		$(IS_PATH)/ft_toupper.c \
+		$(IS_PATH)/ft_tolower.c \
+		$(STR_PATH)/ft_strchr.c \
+		$(STR_PATH)/ft_strrchr.c \
+		$(STR_PATH)/ft_strncmp.c \
+		$(STR_PATH)/ft_strlcpy.c \
+		$(STR_PATH)/ft_strlcat.c \
+		$(STR_PATH)/ft_strnstr.c \
+		$(MATHS_PATH)/ft_atoi.c \
+		$(MEM_PATH)/ft_calloc.c \
+		$(STR_PATH)/ft_strdup.c \
+		$(STR_PATH)/ft_substr.c \
+		$(STR_PATH)/ft_strjoin.c \
+		$(STR_PATH)/ft_strtrim.c \
+		$(STR_PATH)/ft_split.c \
+		$(MATHS_PATH)/ft_itoa.c \
+		$(STR_PATH)/ft_strmapi.c \
+		$(AFF_PAH)/ft_putchar_fd.c \
+		$(AFF_PAH)/ft_putstr_fd.c \
+		$(AFF_PAH)/ft_putendl_fd.c \
+		$(AFF_PAH)/ft_putnbr_fd.c \
+		$(STR_PATH)/ft_strcmp.c \
+		$(LIST_PATH)/ft_lstnew.c
+
+OBJS	= $(SRCS:.c=.o)
+
+CC		= gcc
+
+CFLAGS	= -Wall -Wextra -Werror -g3  -Iincludes
+
+
+%.o:	%.c		
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all :		$(NAME)
 
+$(NAME):	$(OBJS) 
+			ar rc $(NAME) $(OBJS)
+			make -C ./ft_printf
+
+
 clean :
-			rm -f ${OBJS}
+			rm -f $(OBJS)
+			make fclean -C ./ft_printf
 
 fclean :	clean
-			rm -f ${NAME}
+			rm -f $(NAME)
+			make  fclean -C ./ft_printf 
 
 re : fclean all	
+	$(MAKE) re -C ./ft_printf
 
-o : re
-	${MAKE} clean
 
 .PHONY:		all clean fclean re
