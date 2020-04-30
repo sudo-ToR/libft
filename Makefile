@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/16 12:12:45 by lnoirot           #+#    #+#              #
-#    Updated: 2020/04/30 21:44:15 by user42           ###   ########.fr        #
+#    Updated: 2020/04/30 22:04:15 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,8 @@ SRCS	=	$(GNL_PATH)/get_next_line.c \
 		$(AFF_PAH)/ft_putendl_fd.c \
 		$(AFF_PAH)/ft_putnbr_fd.c \
 		$(STR_PATH)/ft_strcmp.c \
-		$(LIST_PATH)/ft_lstnew.c
+		$(LIST_PATH)/ft_lstnew.c \
+		$(LIST_PATH)/ft_lstadd_front.c
 
 OBJS	= $(SRCS:.c=.o)
 
