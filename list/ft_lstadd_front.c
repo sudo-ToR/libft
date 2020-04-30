@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 21:58:36 by user42            #+#    #+#             */
-/*   Updated: 2020/04/30 22:13:17 by user42           ###   ########.fr       */
+/*   Updated: 2020/04/30 22:36:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_lstadd_front(t_list **alst, t_list *new)
 {
 	new->next = *alst;
-	(*alst)->next = new;
+	new = alst;
 }
