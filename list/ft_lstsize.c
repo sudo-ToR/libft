@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 22:18:30 by user42            #+#    #+#             */
-/*   Updated: 2020/05/01 15:49:39 by user42           ###   ########.fr       */
+/*   Updated: 2020/05/01 15:56:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,11 @@
 int		ft_lstsize(t_list *lst)
 {
 	int		size;
-	t_list	*tmp;
 
 	size = 0;
-	if (!lst)
-		return (size);
-	tmp = lst->next;
-	while (tmp)
+	while (lst)
 	{
-		tmp = lst->next;
+		lst = lst->next;
 		size++;
 	}
 	return (size);
