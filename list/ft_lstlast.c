@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 16:00:03 by user42            #+#    #+#             */
-/*   Updated: 2020/05/01 16:02:30 by user42           ###   ########.fr       */
+/*   Updated: 2020/05/01 16:06:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_list  *ft_lstlast(t_list *lst)
 {
+    if (!lst)
+        return (NULL);
     while (lst->next)
         lst = lst->next;
     return (lst);
