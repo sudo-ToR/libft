@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/16 12:12:45 by lnoirot           #+#    #+#              #
-#    Updated: 2020/05/01 16:26:54 by user42           ###   ########.fr        #
+#    Updated: 2020/05/02 17:02:46 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,10 @@ SRCS	=	$(GNL_PATH)/get_next_line.c \
 		$(LIST_PATH)/ft_lstadd_front.c \
 		$(LIST_PATH)/ft_lstlast.c \
 		$(LIST_PATH)/ft_lstsize.c \
-		$(LIST_PATH)/ft_lstadd_front.c
+		$(LIST_PATH)/ft_lstadd_front.c \
+		$(LIST_PATH)/ft_lstdelone.c \
+		$(LIST_PATH)/ft_lstclear.c \
+		$(LIST_PATH)/ft_lstiter.c
 
 OBJS	= $(SRCS:.c=.o)
 

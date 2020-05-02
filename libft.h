@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:48:48 by lnoirot           #+#    #+#             */
-/*   Updated: 2020/05/02 16:22:32 by user42           ###   ########.fr       */
+/*   Updated: 2020/05/02 17:01:53 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ void				ft_lstadd_front(t_list **alst, t_list *new);
 t_list				*ft_lstlast(t_list *lst);
 int					ft_lstsize(t_list *lst);
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
+void				ft_lstclear(t_list **lst, void (*del)(void *));
+void				ft_lstiter(t_list *lst, void (*f)(void *));
 
 #endif
