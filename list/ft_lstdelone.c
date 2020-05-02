@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 16:10:21 by user42            #+#    #+#             */
-/*   Updated: 2020/05/01 16:38:36 by user42           ###   ########.fr       */
+/*   Created: 2020/05/01 16:43:35 by user42            #+#    #+#             */
+/*   Updated: 2020/05/02 13:01:41 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_list *last;
-
-	last = ft_lstlast(*alst);
-	last->next = new;
+		del((void *)lst);
+        free(lst);
 }
