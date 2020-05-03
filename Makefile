@@ -6,7 +6,7 @@
 #    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/16 12:12:45 by lnoirot           #+#    #+#              #
-#    Updated: 2020/05/02 17:02:46 by user42           ###   ########.fr        #
+#    Updated: 2020/05/03 18:12:58 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME	= libft.a
 GNL_PATH =	./gnl
 IS_PATH =	./is_something
 STR_PATH =	./str
-AFF_PAH =	./affichage
+AFF_PAH =	./put
 MEM_PATH =	./mem
 MATHS_PATH =	./maths
 LIST_PATH =		./list
@@ -80,7 +80,7 @@ CFLAGS	= -Wall -Wextra -Werror -g3  -Iincludes
 
 all :		$(NAME)
 
-$(NAME):	$(OBJS) 
+$(NAME):	$(OBJS)
 			ar rc $(NAME) $(OBJS)
 			make -C ./ft_printf
 
